@@ -16,7 +16,7 @@
     <div class="container">
         <p class="text-center font-weight-bold">Player: {{player_data["name"]}}</p>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="chatnum">
                 <p class="text-center border border-dark rounded">Messages by #</p>
             <canvas id="MessageNumChart"></canvas>
             </div>
@@ -27,18 +27,18 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <p class="text-center border border-dark rounded">Ping by #</p>
+            <div class="col-md-6" id="waxnum">
+                <p class="text-center border border-dark rounded">Got Wax by #</p>
             <canvas id="PingNumChart"></canvas>
             </div>
             <div class="col-md-6" id="pingrank">
-                <p class="text-center border border-dark rounded">Ping Overall Rank</p>
+                <p class="text-center border border-dark rounded">Got Wax Overall Rank</p>
             <canvas id="PingRankChart"></canvas>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="handnum">
                 <p class="text-center border border-dark rounded">Hand-Holding by #</p>
             <canvas id="HandNumChart"></canvas>
             </div>

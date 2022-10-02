@@ -21,7 +21,7 @@ $(document).ready(function(){
         ],
         datasets: [{
           label: 'Messages',
-          data: [parseInt(player_data["messages"]), parseInt(total["messages"])],
+          data: [parseInt(player_data["chat_msg"]), parseInt(total["messages"])],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)'
@@ -29,6 +29,11 @@ $(document).ready(function(){
           hoverOffset: 4
         }]
       };
+
+      let newentry = $("<p class='text-center padded'>Your score is " + 
+            parseInt(player_data["chat_msg"])
+            + "</p>");
+        $("#chatnum").append(newentry)
 
       const data2 = {
         labels: [
@@ -46,7 +51,7 @@ $(document).ready(function(){
         }]
       };
 
-      let newentry = $("<p class='text-center padded'>You are in the top " + 
+    newentry = $("<p class='text-center padded'>You are in the top " + 
             (parseInt(player_data["messages_rank"]) / parseInt(total["messages_rank"])) * 100
             + "% of users</p>")
         $("#msgrank").append(newentry)
@@ -66,6 +71,11 @@ $(document).ready(function(){
           hoverOffset: 4
         }]
       }; 
+
+      newentry = $("<p class='text-center padded'>Your score is " + 
+            parseInt(player_data["got_wax"])
+            + "</p>");
+        $("#waxnum").append(newentry)
 
       const data4 = {
         labels: [
@@ -87,6 +97,7 @@ $(document).ready(function(){
             (parseInt(player_data["ping_rank"]) / parseInt(total["ping_rank"])) * 100
             + "% of users</p>")
         $("#pingrank").append(newentry)
+        console.log(player_data["ping_rank"])
 
       const data5 = {
         labels: [
@@ -103,6 +114,11 @@ $(document).ready(function(){
           hoverOffset: 4
         }]
       }; 
+
+      newentry = $("<p class='text-center padded'>Your score is " + 
+            parseInt(player_data["hand_held"])
+            + "</p>");
+        $("#handnum").append(newentry)
 
       const data6 = {
         labels: [
@@ -121,8 +137,8 @@ $(document).ready(function(){
       }; 
 
       newentry = $("<p class='text-center padded'>You are in the top " + 
-            (parseInt(player_data["holding_hands_rank"]) / parseInt(total["holding_hands_rank"])) * 100
-            + "% of users</p>")
+            parseInt(player_data["holding_hands_rank"]) / parseInt(total["holding_hands_rank"]) * 100
+            + "% of users</p>");
         $("#handrank").append(newentry)
 
       const config1 = {
