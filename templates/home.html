@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+<script>
+    let data = {{data|tojson}} 
+</script>
+
+
+<div class="intro">
+    <br>
+    <br>
+    <img id="my_logo" alt="logo" src={{url_for('static', filename='logo.png')}}>   
+    <br>
+
+    <p class="text-center" id="d">Search for a player to find their stats.</p>
+  </div>
+
+<div id="example_block"></div>
+
+{% endblock %}

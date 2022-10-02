@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'player.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    let player_data = {{player_data|tojson}} 
+    let total = {{total|tojson}} 
+</script>
+
+
+<div class="intro">
+    
+    <div class="container">
+        <p class="text-center font-weight-bold">Player: {{player_data["name"]}}</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center border border-dark rounded">Messages by #</p>
+            <canvas id="MessageNumChart"></canvas>
+            </div>
+            <div class="col-md-6" id="msgrank">
+                <p class="text-center border border-dark rounded">Messages Overall Rank</p>
+            <canvas id="MessageRankChart"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center border border-dark rounded">Ping by #</p>
+            <canvas id="PingNumChart"></canvas>
+            </div>
+            <div class="col-md-6" id="pingrank">
+                <p class="text-center border border-dark rounded">Ping Overall Rank</p>
+            <canvas id="PingRankChart"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center border border-dark rounded">Hand-Holding by #</p>
+            <canvas id="HandNumChart"></canvas>
+            </div>
+            <div class="col-md-6" id="handrank">
+                <p class="text-center border border-dark rounded">Hand-Holding Overall Rank</p>
+            <canvas id="HandRankChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <br>
+  </div>
+
+<div id="example_block"></div>
+
+{% endblock %}
