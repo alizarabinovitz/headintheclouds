@@ -1,6 +1,6 @@
 # **Head in the Sky**
 
-A project for data visualization. By Laurena Huh and Aliza Rabinovitz.
+A project for data visualization. By Laurena Huh and Aliza Rabinovitz. HackMIT 2022.
 
 ## Data Insights from the description
 
