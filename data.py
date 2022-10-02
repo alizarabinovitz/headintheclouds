@@ -34,18 +34,19 @@ for d in data:
         user_events[d['userId']] = e.copy()
 
 
-df = pd.DataFrame(user_events)
-df.columns = df.iloc[0]
-df = df[1:]
-df = df.T
+df = pd.DataFrame(user_events).T
+#df.columns = df.iloc[0]
+#df = df[1:]
+#df = df.T
 
 df['max'] = df.max(axis = 1)
-df['max_event'] = df.apply(lambda row: row[row == df.columns[row.argmax()]].index.tolist(), axis = 1)
+df['max_event'] = df.idxmax(axis = 1)
+#df['max_event'] = df.apply(lambda row: df.columns[row[row == df.columns[row.argmax()]].index], axis = 1)
 stats = df.describe()
 print(df.head(15))
 print(stats)
 
-print("hand held sum", df.sum(axis=0))
+print("Sum \n", df.sum(axis=0))
 
 df_json = df.to_json(orient = 'table')
 parsed_json = json.loads(df_json)
@@ -54,8 +55,15 @@ all_data = parsed_json["data"]
 for item in all_data:
     item["name"] = shortuuid.uuid()
 
-print(all_data[0])
+print(all_data[1])
 
+# SUMS
+totals = df.sum(axis = 0)
+maxs = df.max()
+mins = df.min()
+means = df.mean()
+medians = df.med()
+stds = df.std()
 
 # i = 0
 # for item in parsed_json["data"]:

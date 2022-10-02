@@ -38,22 +38,25 @@ $(document).ready(function(){
       const data2 = {
         labels: [
           'You',
-          'The World',
+          'The Mean',
         ],
         datasets: [{
+            type: 'bar',
           label: 'Messages',
           data: [parseInt(player_data["messages_rank"]), parseInt(total["messages_rank"])],
           backgroundColor: [
-            'rgb(54, 162, 235)',
-            'rgb(255, 99, 132)'
+            'rgb(54, 162, 235)'
+          ],
+          borderColor: [
+            'rgb(54, 162, 235)'
           ],
           hoverOffset: 4
         }]
       };
 
-    newentry = $("<p class='text-center padded'>You are in the top " + 
+    newentry = $("<p class='text-center padded'>You sent a message " + 
             (parseInt(player_data["messages_rank"]) / parseInt(total["messages_rank"])) * 100
-            + "% of users</p>")
+            + "% as much as the mean</p>")
         $("#msgrank").append(newentry)
 
       const data3 = {
@@ -62,8 +65,8 @@ $(document).ready(function(){
           'The World',
         ],
         datasets: [{
-          label: 'Ping',
-          data: [parseInt(player_data["ping_number"]), parseInt(total["ping_number"])],
+          label: 'Wax',
+          data: [parseInt(player_data["wax_number"]), parseInt(total["wax_number"])],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(255, 205, 86)'
@@ -80,24 +83,27 @@ $(document).ready(function(){
       const data4 = {
         labels: [
           'You',
-          'The World',
+          'The Mean',
         ],
         datasets: [{
           label: 'Ping',
-          data: [parseInt(player_data["ping_rank"]), parseInt(total["ping_rank"])],
+          type: 'bar',
+          data: [parseInt(player_data["wax_rank"]), parseInt(total["wax_rank"])],
           backgroundColor: [
-            'rgb(255, 205, 86)',
-            'rgb(255, 99, 132)'
+            'rgb(255, 205, 86)'
+          ],
+          borderColor: [
+            'rgb(255, 205, 86)'
           ],
           hoverOffset: 4
         }]
       }; 
 
-      newentry = $("<p class='text-center padded'>You are in the top " + 
-            (parseInt(player_data["ping_rank"]) / parseInt(total["ping_rank"])) * 100
-            + "% of users</p>")
-        $("#pingrank").append(newentry)
-        console.log(player_data["ping_rank"])
+      newentry = $("<p class='text-center padded'>You got wax " + 
+            (parseInt(player_data["wax_rank"]) / parseInt(total["wax_rank"])) * 100
+            + "% as much as the mean</p>")
+        $("#waxrank").append(newentry)
+        console.log(player_data["wax_rank"])
 
       const data5 = {
         labels: [
@@ -123,23 +129,66 @@ $(document).ready(function(){
       const data6 = {
         labels: [
           'You',
-          'The World',
+          'The Mean',
         ],
         datasets: [{
+            type: 'bar',
           label: 'Ping',
           data: [parseInt(player_data["holding_hands_rank"]), parseInt(total["holding_hands_rank"])],
           backgroundColor: [
-            'rgb(54, 162, 235)',
-            'rgb(75, 192, 192)'
+            'rgb(54, 162, 235)'
+          ],
+          borderColor: [
+            'rgb(54, 162, 235)'
           ],
           hoverOffset: 4
         }]
       }; 
 
-      newentry = $("<p class='text-center padded'>You are in the top " + 
+      newentry = $("<p class='text-center padded'>You  " + 
             parseInt(player_data["holding_hands_rank"]) / parseInt(total["holding_hands_rank"]) * 100
-            + "% of users</p>");
+            + "% as much as the mean</p>");
         $("#handrank").append(newentry)
+
+        const data7 = {
+            labels: [
+              'You',
+              'The World',
+            ],
+            datasets: [{
+              label: 'Ping',
+              data: [parseInt(player_data["ping_number"]), parseInt(total["ping_number"])],
+              backgroundColor: [
+                'rgb(160,32,240)',
+                'rgb(119,136,153)'
+              ],
+              hoverOffset: 4
+            }]
+          }; 
+
+          const data8 = {
+            labels: [
+              'You',
+              'The Mean',
+            ],
+            datasets: [{
+              label: 'Ping',
+              type: 'bar',
+              data: [parseInt(player_data["ping_rank"]), parseInt(total["ping_rank"])],
+              backgroundColor: [
+                'rgb(119,136,153)'
+              ],
+              borderColor: [
+                'rgb(119,136,153)'
+              ],
+              hoverOffset: 4
+            }]
+          }; 
+
+          newentry = $("<p class='text-center padded'>You pinged " + 
+            parseInt(player_data["ping_rank"]) / parseInt(total["ping_rank"]) * 100
+            + "% as much as the mean</p>");
+        $("#pingrank").append(newentry)
 
       const config1 = {
         type: 'doughnut',
@@ -148,9 +197,15 @@ $(document).ready(function(){
       };
 
       const config2 = {
-        type: 'doughnut',
+        type: 'scatter',
         data: data2,
-        radius: "10%"
+        options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
       };
 
       const config3 = {
@@ -160,9 +215,15 @@ $(document).ready(function(){
       };
 
       const config4 = {
-        type: 'doughnut',
+        type: 'scatter',
         data: data4,
-        radius: "10%"
+        options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
       };
 
       const config5 = {
@@ -172,9 +233,33 @@ $(document).ready(function(){
       };
 
       const config6 = {
-        type: 'doughnut',
+        type: 'scatter',
         data: data6,
+        options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+      };
+
+      const config7 = {
+        type: 'doughnut',
+        data: data7,
         radius: "10%"
+      };
+
+      const config8 = {
+        type: 'scatter',
+        data: data8,
+        options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
       };
 
   const messageNumChart = new Chart(
@@ -189,12 +274,12 @@ $(document).ready(function(){
 
   const pingNumChart = new Chart(
     document.getElementById('PingNumChart'),
-    config3
+    config7
   );
 
   const pingRankChart = new Chart(
     document.getElementById('PingRankChart'),
-    config4
+    config8
   );
 
   const handRankChart = new Chart(
@@ -205,6 +290,16 @@ $(document).ready(function(){
   const handNumChart = new Chart(
     document.getElementById('HandNumChart'),
     config5
+  );
+
+  const waxNumChart = new Chart(
+    document.getElementById('WaxNumChart'),
+    config3
+  );
+
+  const waxRankChart = new Chart(
+    document.getElementById('WaxRankChart'),
+    config4
   );
 
   console.log(player_data["messages"],total["messages"])
