@@ -34,6 +34,7 @@ for d in data:
 
 
 df = pd.DataFrame(user_events)
+print(df.head(15))
 df = df.set_index('userId')
 df['max'] = df.max(axis = 1)
 df['max_event'] = df.apply(lambda row: row[row == df.columns[row.argmax()]].index.tolist(), axis = 1)
