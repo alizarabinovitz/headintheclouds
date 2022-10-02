@@ -1,6 +1,6 @@
 # **Head in the Sky**
 
-A project for data visualization.
+A project for data visualization. By Laurena Huh and Aliza Rabinovitz.
 
 ## Data Insights from the description
 
